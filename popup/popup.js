@@ -4,7 +4,7 @@
 // The buttonSubmit function takes the information posted in the textarea and stores it as a prompt,
 // which is then sent to the completions enpoint. 
 
-// Store your api key from OpenAI as a string
+// Store your api key from OpenAI as a string replace with your own key "YOUR API KEY"
 const API_KEY = "YOUR API KEY"
 
 // Get a reference to the form element
