@@ -17,7 +17,7 @@ form.addEventListener('submit', function(event) {
 
   // Get the value of the input field
   var inputValue = document.getElementById('emailBody').value;
-
+ 
   // Pass the input value to the buttonSubmit function 
   buttonSubmit(inputValue);
 });

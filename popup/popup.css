@@ -1,1 +1,10 @@
-/* Not in Use */ 
+body {
+    background-color: blanchedalmond;
+}
+
+button {
+    display: inline-block;
+    background-color: azure;
+    border:none;
+}
+
