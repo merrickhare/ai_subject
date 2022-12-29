@@ -17,13 +17,15 @@ Version: 1.0
 
 
 <body>
-    <form id="submit_form">
-        <br>
-        <label for="emailBody"><span id="answer">Paste your email body in the box below.</span></label><br><br>
-        <textarea id="emailBody" name="emailBody" rows="15" cols="50"></textarea><br>
-        <button type="submit" id="submit_button">Submit</button>
-        <button type="reset" id="reset_button">Reset</button>
-      </form> 
+    <div class="Container">  
+        <form id="submit_form">
+            <br>
+            <label for="emailBody"><span id="answer"></span></label><br><br>
+            <textarea id="emailBody" name="emailBody" rows="15" cols="50" placeholder="Paste your email body here...."></textarea><br>
+            <button type="submit" id="submit_button">Submit</button>
+            <button type="reset" id="reset_button">Reset</button>
+        </form>
+     </div> 
 <script src="popup.js"></script>
 </body>
 </html>

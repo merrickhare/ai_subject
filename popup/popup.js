@@ -5,7 +5,7 @@
 // which is then sent to the completions enpoint. 
 
 // Store your api key from OpenAI as a string replace with your own key "YOUR API KEY"
-const API_KEY = "YOUR API KEY"
+const API_KEY = "YOUR_API_KEY"
 
 // Get a reference to the form element
 var form = document.getElementById('submit_form');
@@ -17,13 +17,19 @@ form.addEventListener('submit', function(event) {
 
   // Get the value of the input field
   var inputValue = document.getElementById('emailBody').value;
- 
+  if (inputValue == "") {
+    document.getElementById("answer").innerHTML = "Paste your email body below..."
+  }
+  else {
+
+   buttonSubmit(`Create a professional subject line: ${inputValue}`); 
+  }
   // Pass the input value to the buttonSubmit function 
-  buttonSubmit(inputValue);
+  
 });
 
 form.addEventListener('reset', function() {
-  document.getElementById("answer").innerHTML = "Paste your email body in the box below.";
+  document.getElementById("answer").innerHTML = "";
 });
 // function that handles the request and response to the open ai endpoint
 function buttonSubmit(promptText){
@@ -35,8 +41,8 @@ function buttonSubmit(promptText){
         },
         body: JSON.stringify({
           "model": "text-davinci-003",
-          "prompt": `Create a subject line for an email from the following text: ${promptText}`,
-          "temperature": 0,
+          "prompt": promptText,
+          "temperature": 1,
           "max_tokens": 20
         }),
       })
@@ -52,5 +58,3 @@ function buttonSubmit(promptText){
         document.getElementById("answer").innerHTML = error;
       });
     };
-
-
