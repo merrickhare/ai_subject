@@ -22,7 +22,7 @@ form.addEventListener('submit', function(event) {
   }
   else {
 
-   buttonSubmit(`Create a professional subject line: ${inputValue}`); 
+   buttonSubmit(`Create a short subject line, without the words subject line: ${inputValue}`); 
   }
   // Pass the input value to the buttonSubmit function 
   
@@ -33,6 +33,8 @@ form.addEventListener('reset', function() {
 });
 // function that handles the request and response to the open ai endpoint
 function buttonSubmit(promptText){
+
+      
       fetch("https://api.openai.com/v1/completions", {
         method: "POST",
         headers: {
@@ -42,16 +44,17 @@ function buttonSubmit(promptText){
         body: JSON.stringify({
           "model": "text-davinci-003",
           "prompt": promptText,
-          "temperature": 1,
-          "max_tokens": 20
-        }),
+          "temperature": 0.9,
+          "max_tokens": 100,
+          "frequency_penalty": 0.5
+        })
       })
       // format the response in json
       .then((response) => response.json())
       // clear the answer element and populate with the returned subject
       .then((data) => {
            document.getElementById("answer").innerHTML = " "
-           document.getElementById("answer").innerHTML = "Subject Line: " + data['choices'][0]['text']
+           document.getElementById("answer").innerHTML = data['choices'][0]['text']
       })
       .catch((error) => {
         document.getElementById("answer").innerHTML = " "
