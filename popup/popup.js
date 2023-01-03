@@ -22,7 +22,7 @@ form.addEventListener('submit', function(event) {
   }
   else {
 
-   buttonSubmit(`Create a short subject line, without the words subject line: ${inputValue}`); 
+   buttonSubmit(`Write a powerful subject line relating to the following email body, without the words subject line: ${inputValue}`); 
   }
   // Pass the input value to the buttonSubmit function 
   
@@ -44,10 +44,13 @@ function buttonSubmit(promptText){
         body: JSON.stringify({
           "model": "text-davinci-003",
           "prompt": promptText,
-          "temperature": 0.9,
-          "max_tokens": 100,
-          "frequency_penalty": 0.5
-        })
+          "temperature": 0.7,
+          "max_tokens": 256,
+          "top_p": 1,
+          "frequency_penalty": 0.5,
+          "presence_penalty": 0
+        }
+        )
       })
       // format the response in json
       .then((response) => response.json())
