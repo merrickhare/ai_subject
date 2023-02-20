@@ -3,8 +3,20 @@
   "name": "ai_subject_creator",
   "description": "Creates a subject for your email. Copy and paste your email body into the text box and openai will send you an appropriate subject line for your email. ",
   "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "scripting"
+  ],
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": "popup/images/logo.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
+    }
+  ]
 }
