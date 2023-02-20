@@ -5,7 +5,7 @@
 // which is then sent to the completions enpoint. 
 
 // Store your api key from OpenAI as a string replace with your own key "YOUR API KEY"
-const API_KEY = "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"
+const API_KEY = ""
 let form = document.getElementById('submit_form');
 let textarea = document.getElementById("emailBody");
 
